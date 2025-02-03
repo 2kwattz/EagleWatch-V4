@@ -24,6 +24,8 @@ app.use(express.json());
 app.use(compression());
 app.use('/', routes) // For seperate routes file
 app.use(cookieParser()); // Client's Cookie Parser
+app.use(bodyParser.json()); // For parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));  // For parsing application/x-www-form-urlencoded
 
 // Server Listening
 app.listen(port, () => {

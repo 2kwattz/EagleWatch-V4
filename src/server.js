@@ -7,6 +7,7 @@ const axios = require('axios'); // Http request maker
 const cheerio = require('cheerio'); // Selector for web scrapping 
 const fs = require('fs') // File System Lib
 const jwt = require('jsonwebtoken'); // User Authentication for Login system
+const cookieParser = require('cookie-parser'); // For parsing cookies from client requests
 
 const routes = require('../src/routes/routes')
 
@@ -22,6 +23,7 @@ app.use(express.json());
 // size before sending them to the client for performance
 app.use(compression());
 app.use('/', routes) // For seperate routes file
+app.use(cookieParser()); // Client's Cookie Parser
 
 // Server Listening
 app.listen(port, () => {

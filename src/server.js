@@ -3,11 +3,14 @@ const express = require('express')
 const app = express() // Express Framework
 const port = process.env.PORT || 3000
 
+const { chromium } = require('playwright');
 const axios = require('axios'); // Http request maker
 const cheerio = require('cheerio'); // Selector for web scrapping 
 const fs = require('fs') // File System Lib
 const jwt = require('jsonwebtoken'); // User Authentication for Login system
+const compression = require('compression')
 const cookieParser = require('cookie-parser'); // For parsing cookies from client requests
+const bodyParser = require('body-parser')
 
 const routes = require('../src/routes/routes')
 
